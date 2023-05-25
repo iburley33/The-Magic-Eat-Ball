@@ -2,7 +2,7 @@
 //import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import SearchRestraunt from './pages/SearchRestraunts';
 //import SavedRestraunts from './pages/SavedRestraunts';
-//import Navbar from './components/Navbar';
+
 import logo from "./logo.svg";
 import "./App.css";
 
