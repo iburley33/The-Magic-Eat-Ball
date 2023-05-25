@@ -5,7 +5,16 @@ module.exports = {
 
     // get users favorite restaurants
     async getFavorites({ user, body}, res) {
-
+        try {
+            const updatedUser = await User.find(
+                { _id: user._id },
+                { savedReataurants: body }
+            );
+            return res.json(updatedUser);
+        } catch (err) {
+            console.log(error);
+            return res.status(400).json(err);
+        }
     },
 
 
