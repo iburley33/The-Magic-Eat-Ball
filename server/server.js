@@ -19,4 +19,6 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 
 connectDB.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost
+  app.listen(PORT, () => console.log(`🌍 Now listening on localhost`))
+});
+
