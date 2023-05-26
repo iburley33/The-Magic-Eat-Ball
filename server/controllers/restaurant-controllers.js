@@ -53,9 +53,7 @@ module.exports = {
     const options = {
       hostname: "api.foursquare.com",
       port: 443,
-      path: `/v2/venues/search?client_id=UWAG0E014D1QTHAGKYCACSKPCJABTAR433HHNJ31V4FZ0QER&client_secret=PCG240WEJ22KDCWQW1NEHRCQAUQNP41NAO1K1OH5JYNNIP3H&v=20230522&near=${encodeURIComponent(
-        userLocation
-      )}&query=restaurant&radius=10000`,
+      path: `/v2/venues/search?client_id=UWAG0E014D1QTHAGKYCACSKPCJABTAR433HHNJ31V4FZ0QER&client_secret=PCG240WEJ22KDCWQW1NEHRCQAUQNP41NAO1K1OH5JYNNIP3H&v=20230522&near=${encodeURIComponent(userLocation)}&query=restaurant&radius=10000`,
       method: "GET",
     };
 
@@ -78,3 +76,4 @@ module.exports = {
     request.end();
   },
 };
+
