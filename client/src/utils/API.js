@@ -17,20 +17,20 @@ export const createUser = (userData) => {
   });
 };
 
-export const saveBook = (restrauntData, token) => {
+export const saveRestaurants = (restaurantData, token) => {
   return fetch("/api/users", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(restrauntData),
+    body: JSON.stringify(restaurantData),
   });
 };
 
-// remove saved restraunt data for a logged in user
-export const deleteRestraunt = (restrauntId, token) => {
-  return fetch(`/api/users/restraunt/${restrauntId}`, {
+// remove saved restaurant data for a logged in user
+export const deleterestaurant = (restaurantId, token) => {
+  return fetch(`/api/users/restaurant/${restaurantId}`, {
     method: "DELETE",
     headers: {
       authorization: `Bearer ${token}`,
@@ -38,8 +38,14 @@ export const deleteRestraunt = (restrauntId, token) => {
   });
 };
 
-// make a search to restraunt api
+// make a search to restaurants api
 
-export const searchRestraunts = (query) => {
-  return fetch(`https://www.restaurants-api.p.rapidapi.com=${query}`);
-};
+const options = { method: "GET", headers: { accept: "application/json" } };
+const location = "Rocklin";
+fetch(
+  `https://api.foursquare.com/v3/places/search?query=restaurant&ll=${location}&radius=20000`,
+  options
+)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
