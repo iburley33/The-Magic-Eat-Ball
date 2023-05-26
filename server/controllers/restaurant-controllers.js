@@ -1,5 +1,5 @@
-const { Restaurant } = require('');
-const { User } = require('');
+const { Restaurant } = require('../models/Restaurant');
+const { User } = require('../models/User');
 
 module.exports = {
 
@@ -8,7 +8,7 @@ module.exports = {
         try {
             const updatedUser = await User.find(
                 { _id: user._id },
-                { savedReataurants: body }
+                { savedRestaurants: body }
             );
             return res.json(updatedUser);
         } catch (err) {
