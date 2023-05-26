@@ -40,12 +40,23 @@ export const deleterestaurant = (restaurantId, token) => {
 
 // make a search to restaurants api
 
-const options = { method: "GET", headers: { accept: "application/json" } };
-const location = "Rocklin";
-fetch(
-  `https://api.foursquare.com/v3/places/search?query=restaurant&ll=${location}&radius=20000`,
-  options
-)
-  .then((response) => response.json())
-  .then((response) => console.log(response))
-  .catch((err) => console.error(err));
+var axios = require("axios").default;
+
+var options = {
+  method: "GET",
+  url: "https://api.foursquare.com/v3/places/nearby",
+  params: { ll: "41.8781,-87.6298", query: "resturant" },
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "fsq3MCDbdCEyYkWd2SlChepWU/u1pQhfsFRSCr2Jm8qx8x4=",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
