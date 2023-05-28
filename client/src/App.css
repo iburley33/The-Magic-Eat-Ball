@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,94 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+header {
+  background: linear-gradient(45deg,rgb(96, 4, 149), rgb(198, 22, 242), rgb(96, 4, 149));
+  text-align: center;
+  padding-top: 5px;
+}
+
+body {
+  min-height: 100%;
+  line-height: 1;
+  font-family: sans-serif;
+  background:rgb(11, 78, 11);
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: white;
+}
+
+#ball {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  box-shadow: 10px 5px 10px 2px rgba(0, 0, 0, 0.486);
+}
+
+#window {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg,#1a0fb3, #020844);
+  border-radius: 10px;
+  align-self: center;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+
+#restaurant-name {
+  color: white;
+  text-align: center;
+}
+
+#restaurant-address {
+  color: white;
+  text-align: center;
+}
+
+#fave-this-btn {
+  margin-top: 20px;
+}
+
+#login-btns-container {
+  margin-top: 5px;
+  padding-bottom: 10px;
+}
+
+.btn { 
+  width: 150px;
+  height: 40px;
+  background: linear-gradient(45deg,rgb(88, 88, 88) 10%, rgb(206, 206, 206) 70%, rgb(82, 82, 82));
+  border-radius: 5px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+}
+
+#shake-btn {
+background: linear-gradient(90deg,rgb(242, 216, 22), rgb(149, 110, 4));
+font-weight: bold;
+}
+
+#body-btns-container {
+margin-top: 20px;
 }
