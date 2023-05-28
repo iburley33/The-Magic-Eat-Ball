@@ -19,6 +19,7 @@ function App() {
         <body>
             <div id="body-btns-container">
             <button class="btn" id="only-faves-btn">Only show favorites?</button>
+            <button class="btn" id="view-faves-btn">View favorites</button>
             <button class="btn" id="shake-btn">Shake</button> 
             </div>
             <div id="ball">
