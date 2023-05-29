@@ -4,11 +4,11 @@ const { Schema } = require('mongoose');
 const restaurantSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    //required: true,
   },
   address: {
     type: String,
-    required: true,
+   //required: true,
   },
 });
 
