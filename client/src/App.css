@@ -116,6 +116,7 @@ h1 {
   border-radius: 5px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
   font-size: 14px;
+  margin: 5px;
 }
 
 #shake-btn {
@@ -125,4 +126,8 @@ font-weight: bold;
 
 #body-btns-container {
 margin-top: 20px;
+align-items: center;
+display: flex;
+justify-content: center;
+flex-direction: column;
 }
