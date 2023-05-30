@@ -1,5 +1,5 @@
-const { Restaurant } = require("server/models/Restaurant.js");
-const { User } = require("server/models/User.js");
+const { Restaurant } = require("../models/Restaurant");
+const { User } = require("../models/User");
 const https = require("https");
 
 module.exports = {
