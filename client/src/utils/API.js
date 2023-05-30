@@ -17,7 +17,7 @@ export const createUser = (userData) => {
   });
 };
 
-export const saveRestaurants = (restaurantData, token) => {
+export const savedRestaurants = (restaurantData, token) => {
   return fetch("/api/users", {
     method: "PUT",
     headers: {

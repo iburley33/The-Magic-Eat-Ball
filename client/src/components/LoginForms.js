@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
-import { loginUser } from "../utils/API";
-import Auth from "../utilis/auth";
+import { Form, Button, Alert } from "react-bootstrap";
+import { createUser } from "../utils/API";
+import Auth from "../utils/auth";
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -22,7 +22,7 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await loginUser(userFormData);
+      const response = await createUser(userFormData);
 
       if (!response.ok) {
         throw new Error("something went wrong!");
