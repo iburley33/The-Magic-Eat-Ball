@@ -1,11 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Restaurant } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    users: async () => {
+    user: async () => {
       // Populate the professor subdocument when querying for classes
       return await User.find({}).populate('restaurant');
     },
