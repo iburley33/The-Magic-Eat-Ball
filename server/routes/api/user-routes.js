@@ -19,7 +19,7 @@ router.route('/login').post(login);
 
 router.route('/favorites').get(authMiddleWare, getFavorites)
 
-router.route('/restaurant/:restaurantId').delete(authMiddleware, deleteRestaurant);
+router.route('/favorites/:restaurantId').delete(authMiddleware, deleteRestaurant);
 
 
 module.exports = router;
