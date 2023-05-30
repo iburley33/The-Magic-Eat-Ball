@@ -8,12 +8,20 @@ import React from 'react';
 import "./App.css";
 
 function App() {
+
+  // Thinking we'll somehow connect these to the output of the restaurant API
+  const restaurantName="";
+  const restaurantAddress="";
+
   return (
     <div className="App">
       <header>
             <h1>MAGIC EAT-BALL</h1>
             <div id="login-btns-container">
+                {/* Need to use login component */}
                 <button class="btn" id="login-btn">Login</button>
+                {/* Need to use signup component */}
+                {/* Question: are we still going to use conditional rendering for this? */}
                 <button class="btn" id="signup-btn">Sign Up</button>
             </div>
         </header>
@@ -25,8 +33,8 @@ function App() {
             </div>
             <div id="ball">
                 <div id="window">
-                    <p id="restaurant-name">Restauranty McRestaurantface</p>
-                    <p id="restaurant-address">1234 Some Street, Some Town, NA 12345</p>
+                    <p id="restaurant-name">{restaurantName}</p>
+                    <p id="restaurant-address">{restaurantAddress}</p>
                     <div id="triangle">
                     </div>
                 </div>
@@ -39,3 +47,4 @@ function App() {
 }
 
 export default App;
+
