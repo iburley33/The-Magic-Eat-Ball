@@ -8,14 +8,4 @@ mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
-const connection = mongoose.connection;
-
-connection.on("connected", () => {
-  console.log("Mongoose successfully connected.");
-});
-
-connection.on("err", (err) => {
-  console.log("Mongoose connection error: ", err);
-});
-
-module.exports = connection;
+module.exports = mongoose.connection;
