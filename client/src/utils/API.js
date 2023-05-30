@@ -45,7 +45,7 @@ var axios = require("axios").default;
 var options = {
   method: "GET",
   url: "https://api.foursquare.com/v3/places/nearby",
-  params: { ll: "41.8781,-87.6298", query: "resturant" },
+  params: { ll: "41.8781,-87.6298", query: "restaurant" },
   headers: {
     "Content-Type": "application/json",
     Authorization: "fsq3MCDbdCEyYkWd2SlChepWU/u1pQhfsFRSCr2Jm8qx8x4=",
