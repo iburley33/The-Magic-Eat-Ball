@@ -17,7 +17,7 @@ router.route('/').post(createUser).put(authMiddleware, saveRestaurant);
 
 router.route('/login').post(login);
 
-//router.route('/me').get(authMiddleware, getSingleUser);
+router.route('/favorites').get(authMiddleWare, getFavorites)
 
 router.route('/restaurant/:restaurantId').delete(authMiddleware, deleteRestaurant);
 
