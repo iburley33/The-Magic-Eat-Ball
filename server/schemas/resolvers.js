@@ -22,7 +22,7 @@ const resolvers = {
       return { token, user };
     },
     // may need a TA for this one. Kinda sketchy.
-    addFavorite: async (parent, { name }, context) => {
+    addFavorite: async (parent, { name, address }, context) => {
       console.log(context);
       if (context.user) {
         const favorite = new Restaurant({ name, address });

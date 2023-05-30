@@ -2,21 +2,21 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-type User {
-  {
-    email: {
-      type: String
-      required: true
-      unique: true
-      match: [/.+@.+\..+/, 'Must use a valid email address']
+  type User {
+    {
+      email: {
+        type: String
+        required: true
+        unique: true
+        match: [/.+@.+\..+/, 'Must use a valid email address']
+      }
+      password: {
+        type: String
+        required: true
+      }
+      savedRestaurants: [Restaurant]
     }
-    password: {
-      type: String
-      required: true
-    }
-    savedRestaurants: [Restaurant]
   }
-}
 
   type Restaurant {
     name: {
@@ -45,9 +45,8 @@ type User {
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
+    addFavorite(user: [ID]!): Restaurant
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
 `;
