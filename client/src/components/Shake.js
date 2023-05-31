@@ -1,7 +1,12 @@
 import React from 'react';
+import { apiCall } from '../utils/API';
 
 
 const shakeIt = function() {
+    let response = apiCall();
+    let num = response.results.length
+    console.log(response)
+    console.log(num)
 
 }
 
@@ -9,9 +14,11 @@ const shakeIt = function() {
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
 function Shake() {
+    apiCall()
+
     return (
-        <button class='shake'></button>
+        <button onClick={shakeIt} class='shake'></button>
     );
 }
 
-export default Footer;
+export default Shake;
