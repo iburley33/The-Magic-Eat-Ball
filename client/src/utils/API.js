@@ -58,6 +58,9 @@ var options = {
 axios(options)
   .then(function (response) {
     console.log(response.data);
+    const apiData = response.data;
+    return apiData;
+    
   })
   .catch(function (error) {
     console.error(error);
