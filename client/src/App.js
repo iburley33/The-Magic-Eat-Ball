@@ -13,6 +13,7 @@ function App() {
   const restaurantName="";
   const restaurantAddress="";
 
+  // Right now, I'm basically carving this up and distributing it to other pages.
   return (
     <div className="App">
       <header>
