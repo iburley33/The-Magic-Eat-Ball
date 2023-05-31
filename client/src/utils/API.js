@@ -20,7 +20,7 @@ export const createUser = (userData) => {
 };
 
 export const savedRestaurants = (restaurantData, token) => {
-  return fetch("/api/users", {
+  return fetch("/api/users/favorites", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -55,7 +55,7 @@ var options = {
 };
 
 
-axios(options)
+return axios(options)
   .then(function (response) {
     console.log(response.data);
     const apiData = response.data;
