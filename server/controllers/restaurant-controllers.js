@@ -1,79 +1,80 @@
-const { Restaurant } = require("../models/Restaurant");
-const { User } = require("../models/User");
-const https = require("https");
+const { User } = require("../models");
+const { signToken } = require("../utils/auth");
+const fetch = require("node-fetch");
 
 module.exports = {
-  // get users favorite restaurants
-  async getFavorites({ user, body }, res) {
+  async getFavorites({ user }, res) {
     try {
-      const updatedUser = await User.findOne(
-        { _id: user._id },
-        { savedRestaurants: body }
+      const foundUser = await User.findById(user._id).select(
+        "savedRestaurants"
       );
-      return res.json(updatedUser);
+
+      if (!foundUser) {
+        return res
+          .status(400)
+          .json({ message: "Cannot find a user with this id!" });
+      }
+
+      res.json(foundUser.savedRestaurants);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return res.status(400).json(err);
     }
   },
 
-  // save favorite restaurants
   async saveRestaurant({ user, body }, res) {
     try {
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
+      const updatedUser = await User.findByIdAndUpdate(
+        user._id,
         { $addToSet: { savedRestaurants: body } },
         { new: true, runValidators: true }
       );
-      return res.json(updatedUser);
+
+      if (!updatedUser) {
+        return res.status(400).json({ message: "Something is wrong!" });
+      }
+
+      res.json(updatedUser);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return res.status(400).json(err);
     }
   },
 
-  // delete favorite restaurants
   async deleteRestaurant({ user, params }, res) {
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: user._id },
-      { $pull: { savedRestaurants: { restaurantId: params.restaurantId } } },
-      { new: true }
-    );
-    if (!updatedUser) {
-      return res
-        .status(404)
-        .json({ message: "Couldn't find user with this id!" });
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        user._id,
+        { $pull: { savedRestaurants: { restaurantId: params.restaurantId } } },
+        { new: true }
+      );
+
+      if (!updatedUser) {
+        return res
+          .status(404)
+          .json({ message: "Couldn't find user with this id!" });
+      }
+
+      res.json(updatedUser);
+    } catch (err) {
+      console.error(err);
+      return res.status(400).json(err);
     }
-    return res.json(updatedUser);
   },
 
-  // get restaurants from Foursquare API
-  getRestaurants(req, res) {
-    let userLocation = req.body.location;
-    const options = {
-      hostname: "api.foursquare.com",
-      port: 443,
-      path: `/v2/venues/search?client_id=UWAG0E014D1QTHAGKYCACSKPCJABTAR433HHNJ31V4FZ0QER&client_secret=PCG240WEJ22KDCWQW1NEHRCQAUQNP41NAO1K1OH5JYNNIP3H&v=20230522&near=${encodeURIComponent(userLocation)}&query=restaurant&radius=10000`,
-      method: "GET",
-    };
-
-    const request = https.request(options, (response) => {
-      let data = "";
-      response.on("data", (chunk) => {
-        data += chunk;
-      });
-
-      response.on("end", () => {
-        res.json(JSON.parse(data));
-      });
-    });
-
-    request.on("error", (error) => {
+  async getRestaurants(req, res) {
+    try {
+      let userLocation = req.body.location;
+      const response = await fetch(
+        `https://api.foursquare.com/v2/venues/search?client_id=UWAG0E014D1QTHAGKYCACSKPCJABTAR433HHNJ31V4FZ0QER&client_secret=PCG240WEJ22KDCWQW1NEHRCQAUQNP41NAO1K1OH5JYNNIP3H&v=20230522&near=${encodeURIComponent(
+          userLocation
+        )}&query=restaurant&radius=10000`
+      );
+      const data = await response.json();
+      res.json(data);
+    } catch (error) {
       console.error(error);
       res.status(500).send(error.message);
-    });
-
-    request.end();
+    }
   },
 };
-
