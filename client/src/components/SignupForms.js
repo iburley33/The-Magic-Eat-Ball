@@ -21,7 +21,7 @@ const SignupForm = () => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} onSubmit={() => this.handleSubmit}>
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -92,7 +92,7 @@ const SignupForm = () => {
     </>
   );
 };
-const handleFormSubmit = async (event) => {
+const handleSubmit = async (event) => {
   event.preventDefault();
 
   const form = event.currentTarget;
@@ -103,15 +103,15 @@ const handleFormSubmit = async (event) => {
 
   try {
     console.log("handling form submit...");
-    // const response = await createUser(userFormData);
+    const response = await createUser();
 
-    // if (!response.ok) {
-    //   throw new Error("something went wrong!");
-    // }
+    if (!response.ok) {
+      throw new Error("something went wrong!");
+    }
 
-    // const { token, user } = await response.json();
-    // console.log(user);
-    // Auth.login(token);
+    const { token, user } = await response.json();
+    console.log(user);
+    Auth.login(token);
   } catch (err) {
     console.error(err);
     // setShowAlert(true);

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Shake from "./Shake";
 import FavoriteBtn from "./FavoriteBtn";
 
+import { Link } from "react-router-dom";
+
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
 function Page() {
@@ -11,14 +13,30 @@ function Page() {
   );
   return (
     <div className="App">
+      <header>
+        <h1>MAGIC EAT-BALL</h1>
+        <div id="login-btns-container">
+          <button className="btn" id="login-btn">
+            Login
+          </button>
+
+          <button className="btn" id="signup-btn">
+            Sign Up
+          </button>
+        </div>
+      </header>
       <section>
         <div id="body-btns-container">
-          <button className="btn" id="only-faves-btn">
-            Only show favorites?
-          </button>
-          <button className="btn" id="view-faves-btn">
-            View favorites
-          </button>
+          <Link to="/favorite">
+            <button className="btn" id="only-faves-btn">
+              Only show favorites?
+            </button>
+          </Link>
+          <Link to="/view favorites">
+            <button className="btn" id="view-faves-btn">
+              View favorites
+            </button>
+          </Link>
           <Shake setName={setName} setAddress={setAddress} />
         </div>
         <div id="ball">
