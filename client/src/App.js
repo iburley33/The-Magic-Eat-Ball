@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from "react";
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import SearchRestraunt from './pages/SearchRestraunts';
 // import SavedRestraunts from './pages/SavedRestraunts';
@@ -13,23 +13,23 @@ function App() {
       <header>
         <h1>MAGIC EAT-BALL</h1>
         <div id="login-btns-container">
-          <button className="btn" id="login-btn">
+          <button class="btn" id="login-btn">
             Login
           </button>
-          <button className="btn" id="signup-btn">
+          <button class="btn" id="signup-btn">
             Sign Up
           </button>
         </div>
       </header>
       <body>
         <div id="body-btns-container">
-          <button className="btn" id="only-faves-btn">
+          <button class="btn" id="only-faves-btn">
             Only show favorites?
           </button>
-          <button className="btn" id="view-faves-btn">
+          <button class="btn" id="view-faves-btn">
             View favorites
           </button>
-          <button className="btn" id="shake-btn">
+          <button class="btn" id="shake-btn">
             Shake
           </button>
         </div>
@@ -40,7 +40,7 @@ function App() {
             <div id="triangle"></div>
           </div>
         </div>
-        <button className="btn" id="fave-this-btn">
+        <button class="btn" id="fave-this-btn">
           Favorite this restaurant?
         </button>
         <script src="index.js"></script>

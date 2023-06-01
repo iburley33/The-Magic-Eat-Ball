@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const getMe = (token) => {
   return fetch("./api/users/me", {
     headers: {
@@ -18,7 +20,7 @@ export const createUser = (userData) => {
 };
 
 export const savedRestaurants = (restaurantData, token) => {
-  return fetch("/api/users", {
+  return fetch("/api/users/favorites", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -40,8 +42,8 @@ export const deleterestaurant = (restaurantId, token) => {
 
 // make a search to restaurants api
 
-var axios = require("axios").default;
 
+export const apiCall = () => {
 var options = {
   method: "GET",
   url: "https://api.foursquare.com/v3/places/nearby",
@@ -52,11 +54,15 @@ var options = {
   },
 };
 
-axios
-  .request(options)
+
+return axios(options)
   .then(function (response) {
     console.log(response.data);
+    const apiData = response.data;
+    return apiData;
+    
   })
   .catch(function (error) {
     console.error(error);
   });
+}

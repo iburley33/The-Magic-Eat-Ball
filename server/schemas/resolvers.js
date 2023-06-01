@@ -1,11 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Restaurant } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    users: async () => {
+    user: async () => {
       // Populate the professor subdocument when querying for classes
       return await User.find({}).populate('restaurant');
     },
@@ -22,7 +21,7 @@ const resolvers = {
       return { token, user };
     },
     // may need a TA for this one. Kinda sketchy.
-    addFavorite: async (parent, { name }, context) => {
+    addFavorite: async (parent, { name, address }, context) => {
       console.log(context);
       if (context.user) {
         const favorite = new Restaurant({ name, address });
