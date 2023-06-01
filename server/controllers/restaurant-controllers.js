@@ -1,6 +1,8 @@
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 const fetch = require("node-fetch");
+require('dotenv').config();
+
 
 module.exports = {
   async getFavorites({ user }, res) {
@@ -64,12 +66,13 @@ module.exports = {
 
   async getRestaurants(req, res) {
     try {
-      let userLocation = req.body.location;
+      let userLatitude = req.body.latitude;
+      let userLongitude = req.body.longitude;
+
       const response = await fetch(
-        `https://api.foursquare.com/v2/venues/search?client_id=UWAG0E014D1QTHAGKYCACSKPCJABTAR433HHNJ31V4FZ0QER&client_secret=PCG240WEJ22KDCWQW1NEHRCQAUQNP41NAO1K1OH5JYNNIP3H&v=20230522&near=${encodeURIComponent(
-          userLocation
-        )}&query=restaurant&radius=10000`
+        `https://api.foursquare.com/v2/venues/explore?client_id=${process.env.FOURSQUARE_CLIENT_ID}&client_secret=${process.env.FOURSQUARE_CLIENT_SECRET}&v=20230522&ll=${userLatitude},${userLongitude}&query=restaurant&radius=10000`
       );
+
       const data = await response.json();
       res.json(data);
     } catch (error) {

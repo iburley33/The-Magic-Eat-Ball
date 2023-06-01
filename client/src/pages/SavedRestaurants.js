@@ -43,7 +43,7 @@ const Savedrestaurants = () => {
     }
 
     try {
-      const response = await deleterestaurant(restaurantId, token);
+      const response = await deleteRestaurant(restaurantId, token);
 
       if (!response.ok) {
         throw new Error("something went wrong!");
@@ -72,16 +72,16 @@ const Savedrestaurants = () => {
       </div>
       <Container>
         <h2 className="pt-5">
-          {userData.savedrestaurants.length
-            ? `Viewing ${userData.savedrestaurants.length} saved ${
-                userData.savedrestaurants.length === 1
+          {userData.savedRestaurants.length
+            ? `Viewing ${userData.savedRestaurants.length} saved ${
+                userData.savedRestaurants.length === 1
                   ? "restaurant"
                   : "restaurants"
               }:`
             : "You have no saved restaurants!"}
         </h2>
         <Row>
-          {userData.savedrestaurants.map((restaurant) => {
+          {userData.savedRestaurants.map((restaurant) => {
             return (
               <Col md="4">
                 <Card key={restaurant.restaurantId} border="dark">
@@ -115,4 +115,4 @@ const Savedrestaurants = () => {
   );
 };
 
-export default SavedRestaurant;
+export default SavedRestaurants;
