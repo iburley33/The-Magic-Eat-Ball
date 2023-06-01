@@ -21,7 +21,7 @@ export const createUser = (userData) => {
 
 export const savedRestaurants = (restaurantData, token) => {
   return fetch("/api/users/favorites", {
-    method: "PUT",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,

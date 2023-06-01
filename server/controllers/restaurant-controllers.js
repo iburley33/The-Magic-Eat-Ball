@@ -26,11 +26,13 @@ module.exports = {
 
   async saveRestaurant({ user, body }, res) {
     try {
+      console.log(body);
       const updatedUser = await User.findByIdAndUpdate(
         user._id,
         { $addToSet: { savedRestaurants: body } },
         { new: true, runValidators: true }
       );
+      console.log(updatedUser)
 
       if (!updatedUser) {
         return res.status(400).json({ message: "Something is wrong!" });
