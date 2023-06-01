@@ -1,6 +1,6 @@
 import React from 'react';
 import { savedRestaurants } from '../utils/API';
-import  getToken from '../utils/auth'
+import authService from '../utils/auth'
 
 
 
@@ -9,18 +9,22 @@ import  getToken from '../utils/auth'
 // We assign them to their own variable names
 function FavoriteBtn({ name, address }) {
 
-    const setFavorite = async function (){
+    const setFavorite = async function () {
         const restData = {
             name: name,
             address: address
         };
-        console.log(restData)
-        const token = getToken();
+        console.log(restData);
+        const token = authService.getToken();
         console.log(token)
         savedRestaurants(restData, token)
-    } 
-    
-    
+            .then(response => response.json())
+            .then(data => console.log(data))
+
+    }
+
+
+
     return (
         <button onClick={setFavorite} className="btn" id="fave-this-btn">Favorite this restaurant?</button>
     );

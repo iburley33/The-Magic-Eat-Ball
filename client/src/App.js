@@ -17,9 +17,11 @@ function App() {
       <header>
         <h1>MAGIC EAT-BALL</h1>
         <div id="login-btns-container">
-          <button className="btn" id="login-btn">
-            Login
-          </button>
+          <Link to="/login">
+            <button className="btn" id="login-btn">
+              Login
+            </button>
+          </Link>
 
           <Link to="/signup">
             <button className="btn" id="signup-btn">
