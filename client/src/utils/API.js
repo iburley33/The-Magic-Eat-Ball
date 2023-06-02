@@ -52,11 +52,11 @@ export const deleterestaurant = (restaurantId, token) => {
 
 // make a search to restaurants api
 
-export const apiCall = () => {
+export const apiCall = (latitude, longitude) => {
   var options = {
     method: "GET",
     url: "https://api.foursquare.com/v3/places/nearby",
-    params: { ll: "41.8781,-87.6298", query: "restaurant" },
+    params: { ll: `${latitude},${longitude}`, query: "restaurant" },
     headers: {
       "Content-Type": "application/json",
       Authorization: "fsq3MCDbdCEyYkWd2SlChepWU/u1pQhfsFRSCr2Jm8qx8x4=",
