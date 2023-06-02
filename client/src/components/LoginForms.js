@@ -46,16 +46,8 @@ const LoginForm = () => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert
-          dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
-          variant="danger"
-        >
-          Something went wrong with your login credentials!
-        </Alert>
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Label htmlFor="email"></Form.Label>
           <Form.Control
             type="text"
             placeholder="Your email"
@@ -70,7 +62,7 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label htmlFor="password"></Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -84,12 +76,22 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Button
+          id="shake-submit-btn"
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
         >
           Submit
         </Button>
+        <Alert
+          id="auth-alert"
+          dismissible
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+          variant="danger"
+        >
+          Something went wrong with your login credentials!
+        </Alert>
       </Form>
     </>
   );

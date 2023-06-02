@@ -13,18 +13,7 @@ function Page() {
   );
   return (
     <div className="App">
-      <header>
-        <h1>MAGIC EAT-BALL</h1>
-        <div id="login-btns-container">
-          <button className="btn" id="login-btn">
-            Login
-          </button>
-
-          <button className="btn" id="signup-btn">
-            Sign Up
-          </button>
-        </div>
-      </header>
+      {/* This was the superfluous header */}
       <section>
         <div id="body-btns-container">
           <Link to="/favorite">
