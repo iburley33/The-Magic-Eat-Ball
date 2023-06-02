@@ -60,8 +60,9 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
+
+        <Form.Label htmlFor="username">Username</Form.Label>
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your username"
@@ -74,8 +75,9 @@ const LoginForm = () => {
             Username is required!
           </Form.Control.Feedback>
         </Form.Group>
+
+        <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your email"
@@ -89,8 +91,8 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
+        <Form.Label htmlFor="password">Password</Form.Label>
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -104,12 +106,22 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Button
+          id="shake-submit-btn"
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
         >
           Submit
         </Button>
+        <Alert
+          id="auth-alert"
+          dismissible
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+          variant="danger"
+        >
+          Something went wrong with your login credentials!
+        </Alert>
       </Form>
     </>
   );
