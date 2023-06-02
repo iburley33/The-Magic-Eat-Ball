@@ -39,6 +39,7 @@ module.exports = {
 
   // create new user
   async createUser({ body }, res) {
+    console.log(body);
     const user = await User.create(body);
 
     if (!user) {
