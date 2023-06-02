@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Shake from "./Shake";
 import FavoriteBtn from "./FavoriteBtn";
-
 import { Link } from "react-router-dom";
 
 // Here we are using object destructuring assignment to pluck off our variables from the props object
@@ -11,9 +10,9 @@ function Page() {
   const [address, setAddress] = useState(
     "To find a random restaurant near you!"
   );
+
   return (
     <div className="App">
-      {/* This was the superfluous header */}
       <section>
         <div id="body-btns-container">
           <Link to="/favorite">
