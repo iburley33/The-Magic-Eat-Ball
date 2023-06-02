@@ -25,7 +25,7 @@ function Shake({ setName, setAddress }) {
   };
 
   return (
-    <button onClick={shakeIt} id="shake-btn">
+    <button onClick={shakeIt} id="shake-submit-btn">
       SHAKE
     </button>
   );

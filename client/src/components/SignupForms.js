@@ -69,8 +69,8 @@ const SignupForm = () => {
           Something went wrong with your signup!
         </Alert>
 
+        <Form.Label htmlFor="username">Username</Form.Label>
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="username"></Form.Label>
           <Form.Control
             type="text"
             placeholder="Your username"
@@ -84,8 +84,8 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
+        <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="email"></Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -99,8 +99,8 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
+        <Form.Label htmlFor="password">Password</Form.Label>
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="password"></Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
