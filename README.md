@@ -26,7 +26,7 @@ The challenge of orchestrating the creation of the project simulated a real prod
 
 ## Installation
 
-To run the application, please visit [The-Magic-Eat-Ball](PUT DEPLOYMENT LINK HERE).
+To run the application, please visit [The-Magic-Eat-Ball](https://lit-brushlands-86158.herokuapp.com/)
 
 ## Usage
 
