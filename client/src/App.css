@@ -9,7 +9,7 @@ html {
 }
 
 header {
-  background: linear-gradient(45deg,rgb(96, 4, 149), rgb(198, 22, 242), rgb(96, 4, 149));
+  background: linear-gradient(45deg,rgb(96, 4, 149), rgba(198, 22, 242, 0.717), rgb(96, 4, 149));
   text-align: center;
   padding-top: 5px;
 }

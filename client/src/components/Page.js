@@ -15,16 +15,6 @@ function Page() {
     <div className="App">
       <section>
         <div id="body-btns-container">
-          <Link to="/favorite">
-            <button className="btn" id="only-faves-btn">
-              Only show favorites?
-            </button>
-          </Link>
-          <Link to="/view favorites">
-            <button className="btn" id="view-faves-btn">
-              View favorites
-            </button>
-          </Link>
           <Shake setName={setName} setAddress={setAddress} />
         </div>
         <div id="ball">
@@ -34,7 +24,6 @@ function Page() {
             <div id="triangle"></div>
           </div>
         </div>
-        <FavoriteBtn name={name} address={address} />
         <script src="index.js"></script>
       </section>
     </div>
